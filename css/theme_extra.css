@@ -63,3 +63,6 @@ td, th {display: table-cell;
 vertical-align: inherit;}
 
 td, th {vertical-align: top;}
+
+tr:nth-child(even) {background: ##edf0f2}
+tr:nth-child(odd) {background: ##fcfcfc}
