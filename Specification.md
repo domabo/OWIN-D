@@ -109,7 +109,7 @@ context["owind.ModelName"] = "Domabot X500";
 context["owind.ModelNumber"] = "D-X500";
 context["owind.ModelUrl:"] = "http://domabo.com/products/domabot/x500";
 context["owind.PresentationUrl"] = "/img/img.jpg";
-``` js
+```
 
 
 ### Device Info
