@@ -1,0 +1,67 @@
+/*
+ * Sphinx doesn't have support for section dividers like we do in
+ * MkDocs, this styles the section titles in the nav
+ *
+ * https://github.com/tomchristie/mkdocs/issues/175
+ */
+.wy-menu-vertical span {
+    line-height: 18px;
+    padding: 0.4045em 1.618em;
+    display: block;
+    position: relative;
+    font-size: 90%;
+    color: #838383;
+}
+
+.wy-menu-vertical .toctree-l2 a {
+    padding: 0.4045em 2.427em;
+}
+
+/*
+ * Long navigations run off the bottom of the screen as the nav
+ * area doesn't scroll.
+ *
+ * https://github.com/tomchristie/mkdocs/pull/202
+ */
+.wy-nav-side {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/*
+ * Fix wrapping in the code highlighting
+ *
+ * https://github.com/tomchristie/mkdocs/issues/233
+ */
+code {
+    white-space: pre;
+}
+
+table {
+    margin-top: 10px;
+margin-bottom: 10px;
+padding: 0;
+border-collapse: collapse;
+clear: both;
+border-spacing: 0;
+vertical-align: middle;
+display: table;
+border-collapse: separate;
+-webkit-border-horizontal-spacing: 2px;
+-webkit-border-vertical-spacing: 2px;
+border-top-color: gray;
+border-right-color: gray;
+border-bottom-color: gray;
+border-left-color: gray;
+margin-left: 40px;
+margin-right: 40px;
+max-width: 470px;
+}
+
+table tr td {text-align: auto;
+border: 1px solid #ccc;
+margin: 0;
+padding: 6px 13px;}
+
+td, th {display: table-cell;
+vertical-align: inherit;}
