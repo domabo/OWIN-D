@@ -7,6 +7,6 @@ site_dir: 'dest'
 site_favicon: favicon.ico
 pages:
 - ['index.md', 'Home']
-- ['Specification.md', 'Specification', 'OWIN-JS']
+- ['Specification.md', 'Specification', 'OWIN-D']
 - ['About.md', 'Overview', 'About']
 theme:  readthedocs
