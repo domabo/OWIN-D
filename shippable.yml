@@ -1,0 +1,27 @@
+# SHIPPABLE FILE TO UPDATE GH-PAGES WITH MKDOCS.YML
+# before using: git checkout --orphan gh-pages && git rm -rf .
+language: python
+build_image: shippableimages/ubuntu1404_python
+python:
+  - 3.4
+env:
+ global:
+   - secure: 4lbf0X6bpl61thWWIVvLveNa/LJQ0mEagB/DHvmyh5vyP3u2U1dUIaRUpziFaZItWsr1WDjM6M6bH8MJccCy1TJg/ujWaLemfZMyC4qJrYzE5gVd/ONpQ2RIiTQFELxPnl9hklyswSGonB+Eg1PmODL4xXMzs/02WU+6v05XteXsR9A8sJGlmXf8ZGzs4Gc/F9LaRrdcizfagwu7WyxjkFS8OLW3zjC1ENMAADygh4IJN9JJGnh4NxZaxI9kSjcUlIP0eyn1aJdU0JwLe56vH89iPczIruTFcuT/x2wtuZjc2fJnn2PAB+23QXQT2HL/lfMNYduMOEaH/9zX5ctERg==
+
+install:
+  - pip install mkdocs
+  - git checkout $BRANCH 
+  - mkdir -p /tmp/dest
+  - git clone ssh://git@github.com/$REPO_NAME.git /tmp/dest --branch gh-pages
+  - mkdocs build --clean
+  - rm -rf dest/dest
+  - cp -R dest/* /tmp/dest
+  - cd /tmp/dest
+  - git config user.email $GIT_EMAIL
+  - git config user.name $GIT_USER
+  - git config --global push.default matching
+  - git add . -A
+  - git remote set-url origin ssh://git@github.com/$REPO_NAME.git
+  - git commit -m "auto-publish via SHIPPABLE [ci skip] [skip ci]"
+  - git push origin gh-pages
+  - cd ~ && rm -rf /tmp/dest
