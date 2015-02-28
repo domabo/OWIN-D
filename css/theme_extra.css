@@ -65,3 +65,5 @@ padding: 6px 13px;}
 
 td, th {display: table-cell;
 vertical-align: inherit;}
+
+td, th {vertical-align: top;}
