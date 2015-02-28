@@ -46,16 +46,12 @@ clear: both;
 border-spacing: 0;
 vertical-align: middle;
 display: table;
-border-collapse: separate;
--webkit-border-horizontal-spacing: 2px;
--webkit-border-vertical-spacing: 2px;
 border-top-color: gray;
 border-right-color: gray;
 border-bottom-color: gray;
 border-left-color: gray;
 margin-left: 40px;
 margin-right: 40px;
-max-width: 470px;
 }
 
 table tr td {text-align: auto;
