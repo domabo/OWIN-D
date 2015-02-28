@@ -212,39 +212,100 @@ context[&quot;owind.ModelName&quot;] = &quot;Domabot X500&quot;;
 context[&quot;owind.ModelNumber&quot;] = &quot;D-X500&quot;;
 context[&quot;owind.ModelUrl:&quot;] = &quot;http://domabo.com/products/domabot/x500&quot;;
 context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
-``` js
+</code></pre>
 
-
-### Device Info
-
-#### Model Definitions
-
-Required | OWIN-D Key Name | Value Description
-:------: | ------------- | -------------------------------------
-Yes | **owind.Manufacturer** | Name of the manufacturer of the DEVICE. It MUST have fewer than 256 Unicode characters
-No | **owind.ManufacturerUrl** | URL to a Web site for the manufacturer of the DEVICE. It MUST have fewer than 2,048 octets.
-No | **owind.ModelName** | User-friendly name for this model of device chosen by the manufacturer. It MUST have fewer than 256 Unicode characters
-No | **owind.ModelNumber** | Model number for this model of DEVICE. It MUST have fewer than 256 Unicode characters.
-No | **owind.ModelUrl** | URL to a Web site for this model of DEVICE. It MUST have fewer than 2,048 octets.
-No | **owind.PresentationUrl** | URL to a presentation resource for this DEVICE. It MAY be relative to the transport address over which metadata was retrieved, and MUST have fewer than 2,048 octets.  If PresentationUrl is specified, the DEVICE MAY provide the resource in multiple formats, but MUST at least provide an HTML page.  CLIENTs and DEVICEs MAY use transport content negotiation [e.g., HTTP/1.1, COAP/1.0] to determine the format and content of the presentation resource.  DEVICEs that use a relative URL MAY use Transport Redirection (e.g., 3xx codes for HTTP/1.1) to direct CLIENTs to a dedicated content server running on another port.
-
-
-#### Device Definitions
-
-Required | OWIN-D Key Name | Value Description
-:------: | ------------- | -------------------------------------
-Yes | **owind.Id** | Persistent identifier for this DEVICE, typically the MAC address;  the DeviceId MAY be stable for as long as a DEVICE is in a given HOME/network
-Yes | **owind.Urn** | Unique Resource Name for this device, often used for validation on pairing and for resolve requests
-Yes | **owind.SetupCode** | Password code used during connection pairing
-Yes | **owind.FriendlyName** | User-friendly name for this DEVICE. It MUST have fewer than 256 Unicode characters
-Yes | **owind.SerialNumber** | Manufacturer-assigned serial number for this DEVICE. It MUST have fewer than 256 Unicode characters.
-No | **owind.FirmwareVersion** | Firmware version for this DEVICE. It MUST have fewer than 256 Unicode characters.
-No | **owind.Services** | Array of SERVICE property dictionaries
-
-
-Example usage:
-``` js
-context[&quot;owind.Manufacturer&quot;] = &quot;Domabo&quot;;
+<h3 id="device-info_1">Device Info</h3>
+<h4 id="model-definitions">Model Definitions</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.Manufacturer</strong></td>
+<td>Name of the manufacturer of the DEVICE. It MUST have fewer than 256 Unicode characters</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ManufacturerUrl</strong></td>
+<td>URL to a Web site for the manufacturer of the DEVICE. It MUST have fewer than 2,048 octets.</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ModelName</strong></td>
+<td>User-friendly name for this model of device chosen by the manufacturer. It MUST have fewer than 256 Unicode characters</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ModelNumber</strong></td>
+<td>Model number for this model of DEVICE. It MUST have fewer than 256 Unicode characters.</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ModelUrl</strong></td>
+<td>URL to a Web site for this model of DEVICE. It MUST have fewer than 2,048 octets.</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.PresentationUrl</strong></td>
+<td>URL to a presentation resource for this DEVICE. It MAY be relative to the transport address over which metadata was retrieved, and MUST have fewer than 2,048 octets.  If PresentationUrl is specified, the DEVICE MAY provide the resource in multiple formats, but MUST at least provide an HTML page.  CLIENTs and DEVICEs MAY use transport content negotiation [e.g., HTTP/1.1, COAP/1.0] to determine the format and content of the presentation resource.  DEVICEs that use a relative URL MAY use Transport Redirection (e.g., 3xx codes for HTTP/1.1) to direct CLIENTs to a dedicated content server running on another port.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="device-definitions">Device Definitions</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.Id</strong></td>
+<td>Persistent identifier for this DEVICE, typically the MAC address;  the DeviceId MAY be stable for as long as a DEVICE is in a given HOME/network</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.Urn</strong></td>
+<td>Unique Resource Name for this device, often used for validation on pairing and for resolve requests</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.SetupCode</strong></td>
+<td>Password code used during connection pairing</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.FriendlyName</strong></td>
+<td>User-friendly name for this DEVICE. It MUST have fewer than 256 Unicode characters</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.SerialNumber</strong></td>
+<td>Manufacturer-assigned serial number for this DEVICE. It MUST have fewer than 256 Unicode characters.</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.FirmwareVersion</strong></td>
+<td>Firmware version for this DEVICE. It MUST have fewer than 256 Unicode characters.</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.Services</strong></td>
+<td>Array of SERVICE property dictionaries</td>
+</tr>
+</tbody>
+</table>
+<p>Example usage:</p>
+<pre><code class="js">context[&quot;owind.Manufacturer&quot;] = &quot;Domabo&quot;;
 context[&quot;owind.ManufacturerUrl&quot;] = &quot;http://domabo.com&quot;;
 context[&quot;owind.ModelName&quot;] = &quot;Domabot X500&quot;;
 context[&quot;owind.ModelNumber&quot;] = &quot;D-X500&quot;;
