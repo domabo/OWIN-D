@@ -10,3 +10,4 @@ pages:
 - ['Specification.md', 'Specification', 'OWIN-D']
 - ['About.md', 'Overview', 'About']
 theme:  readthedocs
+theme_dir: _theme
