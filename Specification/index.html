@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OWIN-JS - OWIN-D</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> OWIN-D</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+        <span>Specification</span>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">OWIN-JS</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#specification-v09-release">Specification v0.9 RELEASE</a></li>
+                            
+                                <li><a class="toctree-l3" href="#contents">Contents</a></li>
+                            
+                                <li><a class="toctree-l3" href="#146-overview">1. Overview</a></li>
+                            
+                                <li><a class="toctree-l3" href="#owin-d-functions">OWIN-D Functions</a></li>
+                            
+                                <li><a class="toctree-l3" href="#owin-d-properties">OWIN-D Properties</a></li>
+                            
+                                <li><a class="toctree-l3" href="#owin-d-containers">OWIN-D Containers</a></li>
+                            
+                                <li><a class="toctree-l3" href="#owin-d-server-capabilities">OWIN-D Server Capabilities</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Overview</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../About">About</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href=".."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    <li>OWIN-JS</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/OWIN-JS/OWIN-D/" class="icon icon-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <p><a href="http://owind.org"><img alt="OWIN-D" src=".././owin-d.png" /></a></p>
+<h1 id="specification-v09-release">Specification v0.9 RELEASE</h1>
+<ul>
+<li>Author : OWIN-JS working group</li>
+<li>Copyright : OWIN-JS contributors</li>
+<li>License : <a href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 Unported License</a></li>
+</ul>
+<h2 id="contents">Contents</h2>
+<p>1. <a href="#Overview">Overview</a></p>
+<p>2. <a href="#2-definitions">Definitions</a></p>
+<p>3. <a href="#3-request-execution">Request Execution</a></p>
+<p>3.1. <a href="#31-application-delegate">Application Delegate</a></p>
+<p>3.2. <a href="#32-environment">Environment</a></p>
+<p>3.3. <a href="#33-headers">Headers</a></p>
+<p>3.4. <a href="#34-request-body-100-continue-and-completed-semantics">Request Body</a></p>
+<p>3.5. <a href="#35-response-body">Response Body</a></p>
+<p>3.6. <a href="#36-request-lifetime">Request Lifetime</a></p>
+<p>4. <a href="#4-application-startup">Application Startup</a></p>
+<p>5. <a href="#5-uri-reconstruction">URI Reconstruction</a></p>
+<p>5.1. <a href="#51-uri-scheme">URI Scheme</a></p>
+<p>5.2. <a href="#52-hostname">Hostname</a></p>
+<p>5.3. <a href="#53-paths">Paths</a></p>
+<p>5.4. <a href="#54-uri-reconstruction-algorithm">URI Reconstruction Algorithm</a></p>
+<p>5.5. <a href="#55-percent-encoding">Percent-encoding</a></p>
+<p>6. <a href="#6-error-handling">Error Handling</a></p>
+<p>6.1. <a href="#61-application-errors">Application Errors</a></p>
+<p>6.2. <a href="#62-server-errors">Server Errors</a></p>
+<p>7. <a href="#7-versioning">Versioning</a></p>
+<p>8. <a href="#8-extensions">Extensions</a></p>
+<h2 id="146-overview">1. Overview</h2>
+<p>The purpose of this OWIN-D specification is to provide an abstraction from any IoT (Internet of Things) or Web Services for Devices protocol.</p>
+<p>OWIN-D defines a standard framework for REST device containers written for io.js, Node.js and application/device logic. It works with any protocol such as COAP, WSDP, OIC iotivity, Apple HomeKit, and can be a drop-in replacement for existing frameworks such as Connect/Express to re-use existing code.</p>
+<p>OWIN-D is an extension of the OWIN-JS specification specifically targeted for Internet of Things manufacturers and application developers.</p>
+<p>The goal of OWIN-D is to decouple transport and device logic and, by being an open standard, stimulate the open source ecosystem of Node.js web application/device development tools, without ties to any one framework or device protocol.</p>
+<p>OWIN-D expands the REST philosophy to web servers, internet of things, etc.</p>
+<p>OWIN-D is defined in terms of a delegate structure. There is no assembly. Implementing either the host or application side the OWIN-JS spec does not introduce a dependency to a project.</p>
+<p>In this document, the Node.js <code>function</code> and C# <code>Action</code>/<code>Func</code> syntax is used to notate some delegate structures.   However, the delegate structure could be equivalently represented with other native functions, CLR interfaces, or named delegates. This is by design; when implementing OWIN-D, choose a delegate representation that works for you and your stack.</p>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.</p>
+<h2 id="owin-d-functions">OWIN-D Functions</h2>
+<h3 id="register-and-advertise-deviceserviceresource">Register and Advertise Device/Service/Resource</h3>
+<h3 id="invoke-handler-for-requested-resource-operation-server">Invoke handler for requested resource operation  (server)</h3>
+<h3 id="publish-event-to-all-subscribers-server">Publish Event to all Subscribers (server)</h3>
+<h3 id="request-resource-operation-client">Request Resource Operation  (client)</h3>
+<h3 id="stop-advertising">Stop Advertising</h3>
+<h3 id="discovery-probe">Discovery Probe</h3>
+<p>Find the devices that meet the given criteria (all, of type lighting, etc.)</p>
+<h3 id="discovery-resolve">Discovery Resolve</h3>
+<p>Find the current URIs for a given device URN</p>
+<h2 id="owin-d-properties">OWIN-D Properties</h2>
+<h3 id="device-info">Device Info</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.Manufacturer</strong></td>
+<td>Name of the manufacturer of the DEVICE. It MUST have fewer than 256 Unicode characters</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ManufacturerUrl</strong></td>
+<td>URL to a Web site for the manufacturer of the DEVICE. It MUST have fewer than 2,048 octets.</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ModelName</strong></td>
+<td>User-friendly name for this model of device chosen by the manufacturer. It MUST have fewer than 256 Unicode characters</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ModelNumber</strong></td>
+<td>Model number for this model of DEVICE. It MUST have fewer than 256 Unicode characters.</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ModelUrl</strong></td>
+<td>URL to a Web site for this model of DEVICE. It MUST have fewer than 2,048 octets.</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.PresentationUrl</strong></td>
+<td>URL to a presentation resource for this DEVICE. It MAY be relative to the transport address over which metadata was retrieved, and MUST have fewer than 2,048 octets.  If PresentationUrl is specified, the DEVICE MAY provide the resource in multiple formats, but MUST at least provide an HTML page.  CLIENTs and DEVICEs MAY use transport content negotiation [e.g., HTTP/1.1, COAP/1.0] to determine the format and content of the presentation resource.  DEVICEs that use a relative URL MAY use Transport Redirection (e.g., 3xx codes for HTTP/1.1) to direct CLIENTs to a dedicated content server running on another port.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="js">context[&quot;owind.Manufacturer&quot;] = &quot;Domabo&quot;;
+context[&quot;owind.ManufacturerUrl&quot;] = &quot;http://domabo.com&quot;;
+context[&quot;owind.ModelName&quot;] = &quot;Domabot X500&quot;;
+context[&quot;owind.ModelNumber&quot;] = &quot;D-X500&quot;;
+context[&quot;owind.ModelUrl:&quot;] = &quot;http://domabo.com/products/domabot/x500&quot;;
+context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
+``` js
+
+
+### Device Info
+
+#### Model Definitions
+
+Required | OWIN-D Key Name | Value Description
+:------: | ------------- | -------------------------------------
+Yes | **owind.Manufacturer** | Name of the manufacturer of the DEVICE. It MUST have fewer than 256 Unicode characters
+No | **owind.ManufacturerUrl** | URL to a Web site for the manufacturer of the DEVICE. It MUST have fewer than 2,048 octets.
+No | **owind.ModelName** | User-friendly name for this model of device chosen by the manufacturer. It MUST have fewer than 256 Unicode characters
+No | **owind.ModelNumber** | Model number for this model of DEVICE. It MUST have fewer than 256 Unicode characters.
+No | **owind.ModelUrl** | URL to a Web site for this model of DEVICE. It MUST have fewer than 2,048 octets.
+No | **owind.PresentationUrl** | URL to a presentation resource for this DEVICE. It MAY be relative to the transport address over which metadata was retrieved, and MUST have fewer than 2,048 octets.  If PresentationUrl is specified, the DEVICE MAY provide the resource in multiple formats, but MUST at least provide an HTML page.  CLIENTs and DEVICEs MAY use transport content negotiation [e.g., HTTP/1.1, COAP/1.0] to determine the format and content of the presentation resource.  DEVICEs that use a relative URL MAY use Transport Redirection (e.g., 3xx codes for HTTP/1.1) to direct CLIENTs to a dedicated content server running on another port.
+
+
+#### Device Definitions
+
+Required | OWIN-D Key Name | Value Description
+:------: | ------------- | -------------------------------------
+Yes | **owind.Id** | Persistent identifier for this DEVICE, typically the MAC address;  the DeviceId MAY be stable for as long as a DEVICE is in a given HOME/network
+Yes | **owind.Urn** | Unique Resource Name for this device, often used for validation on pairing and for resolve requests
+Yes | **owind.SetupCode** | Password code used during connection pairing
+Yes | **owind.FriendlyName** | User-friendly name for this DEVICE. It MUST have fewer than 256 Unicode characters
+Yes | **owind.SerialNumber** | Manufacturer-assigned serial number for this DEVICE. It MUST have fewer than 256 Unicode characters.
+No | **owind.FirmwareVersion** | Firmware version for this DEVICE. It MUST have fewer than 256 Unicode characters.
+No | **owind.Services** | Array of SERVICE property dictionaries
+
+
+Example usage:
+``` js
+context[&quot;owind.Manufacturer&quot;] = &quot;Domabo&quot;;
+context[&quot;owind.ManufacturerUrl&quot;] = &quot;http://domabo.com&quot;;
+context[&quot;owind.ModelName&quot;] = &quot;Domabot X500&quot;;
+context[&quot;owind.ModelNumber&quot;] = &quot;D-X500&quot;;
+context[&quot;owind.ModelUrl:&quot;] = &quot;http://domabo.com/products/domabot/x500&quot;;
+context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
+context[&quot;owind.DeviceId&quot;] = &quot;1A:2B:3C:4D:5E:FF&quot;;
+context[&quot;owind.DeviceUrn&quot;] = &quot;urn:af6aacb6-17e0-45aa-9fc0-c4090f9c1f53&quot;;
+context[&quot;owind.SetupCode&quot;] = &quot;098-45-211&quot;;
+context[&quot;owind.FriendlyName&quot;] = &quot;LimeRun Test OWIN-D Server&quot;;
+context[&quot;owind.SerialNumber&quot;] = &quot;1234567890&quot;;
+context[&quot;owind.FirmwareVersion&quot;] = &quot;0.85A&quot;;
+</code></pre>
+
+<h4 id="service-definitions">Service Definitions</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.Urn</strong></td>
+<td>Unique Resource Name of the service</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ResourcePath</strong></td>
+<td>The OWIN-JS request path. The path MUST be relative to the "root" of the application CONTAINER, and for a SERVICE or DEVICE MUST be the base onto which <a href="http://tools.ietf.org/html/rfc5785">well-known</a> sub-paths (e.g., "/oc/core" or ".well-known/core") are appended;  not necesssarily persistent across reboots of the CONTAINER but SHOULD NOT change due to arbitary network reconfigurations</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ServiceType</strong></td>
+<td>The OWIN-D service type or custom type URN</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.FriendlyName</strong></td>
+<td>User-friendly name for this SERVICE. It MUST have fewer than 256 Unicode characters</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.Resources</strong></td>
+<td>Array of RESOURCE property dictionaries</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.Parent</strong></td>
+<td>Reference to parent DEVICE properties dictionary</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resource-definitions">Resource Definitions</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.Urn</strong></td>
+<td>Unique Resource Name of the service</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ResourcePath</strong></td>
+<td>The OWIN-JS request path. The path MUST be relative to the "root" of the application CONTAINER, and for a SERVICE or DEVICE MUST be the base onto which <a href="http://tools.ietf.org/html/rfc5785">well-known</a> sub-paths (e.g., "/oc/core" or ".well-known/core") are appended;  not necesssarily persistent across reboots of the CONTAINER but SHOULD NOT change due to arbitary network reconfigurations</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ResourceType</strong></td>
+<td>The OWIN-D resource type or custom type URN</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.FriendlyName</strong></td>
+<td>The user-friendly name for this RESOURCE. It MUST have fewer than 256 Unicode characters</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.ResourceInterface</strong></td>
+<td>The OWIN-D interface type (e.g., binary switch)</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.Parent</strong></td>
+<td>Reference to parent SERVICE properties dictionary</td>
+</tr>
+</tbody>
+</table>
+<h3 id="optional-resource-format-definitions">Optional Resource Format Definitions</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ResourceFormat</strong></td>
+<td>int, float or string, etc.</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ResourceValueMin</strong></td>
+<td>The minimum value for the resource value</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ResourceValueMax</strong></td>
+<td>The maximum value for the resource value</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ResourceValueStep</strong></td>
+<td>The increment value for the resource value</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ResourceValuePrecision</strong></td>
+<td>The precision of the resource value</td>
+</tr>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.ResourceValueMaxLength</strong></td>
+<td>The maximum length of the resource value</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="js">serviceProperties[&quot;owind.ResourcePath&quot;] = [ &quot;/device1/lightservice&quot; ]
+brightnessProperties[&quot;owind.RequestPath&quot;] = [ &quot;http://127.0.0.1:12001/device1/lightservice/brightness&quot; ];
+</code></pre>
+
+<h2 id="owin-d-containers">OWIN-D Containers</h2>
+<p>A container is just a special form of an OWIN Device</p>
+<p>that MAY contain</p>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">No</td>
+<td><strong>owind.Devices</strong></td>
+<td>Array of DEVICE property dictionaries</td>
+</tr>
+</tbody>
+</table>
+<h2 id="owin-d-server-capabilities">OWIN-D Server Capabilities</h2>
+<p>The application startup properties dictionary and each request will contain ["server.Capabilities"] object containing:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.Version</strong></td>
+<td>"1.0"</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.Support</strong></td>
+<td>OWIN-D Support Dictionary below</td>
+</tr>
+</tbody>
+</table>
+<h3 id="owin-d-support-dictionary">OWIN-D Support Dictionary</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Required</th>
+<th>OWIN-D Key Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.RegisterDevice</strong></td>
+<td>{promise} function({dictionary} deviceContext) to register and start advertising the included device definition(s)</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.UnregisterDevice</strong></td>
+<td>{promise} function({string} Urn) to stop advertising the referenced device Urn</td>
+</tr>
+<tr>
+<td align="left">Yes</td>
+<td><strong>owind.RegisterResourcePublisher</strong></td>
+<td>{{promise} function(outgoingContext)} function({string} url) to publish OWIN Response Context to all subscribers for this</td>
+</tr>
+</tbody>
+</table>
+<h3 id="register-and-advertise-deviceserviceresource_1">Register and Advertise Device/Service/Resource</h3>
+<h3 id="invoke-handler-for-requested-resource-operation-server_1">Invoke handler for requested resource operation  (server)</h3>
+<h3 id="publish-event-to-all-subscribers-server_1">Publish Event to all Subscribers (server)</h3>
+<h3 id="request-resource-operation-client_1">Request Resource Operation  (client)</h3>
+<h3 id="stop-advertising_1">Stop Advertising</h3>
+<h3 id="discovery-probe_1">Discovery Probe</h3>
+<p>Find the devices that meet the given criteria (all, of type lighting, etc.)</p>
+<h3 id="discovery-resolve_1">Discovery Resolve</h3>
+<p>Find the current URIs for a given device URN</p>
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../About" class="btn btn-neutral float-right" title="About"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+            <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+        
+      <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../About" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>
