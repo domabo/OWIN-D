@@ -1,7 +1,5 @@
 [![OWIN-D](./owin-d.png)](http://owind.org)
-# OWIN-D Specification
-
-## About
+### About
 
 The purpose of the OWIN-D specification is to provide a standard framework for developing and interacting with devices and accessories in the broad Interent of Things marketplace.     It is not yet another interoperability standard nor specificies a particular protocol (e.g., HomeKit, iotivity) or transport (e.g., HTTP, CoAP), but rather a simple abstraction to simplify development.
 
