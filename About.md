@@ -2,7 +2,7 @@
 
 ### About
 
-The purpose of the OWIN-D (Open Web Interface for Networked Devices) specification is to provide a standard framework for developing and interacting with devices and accessories in the broad Interent of Things marketplace.     It is not yet another interoperability standard nor specificies a particular protocol (e.g., HomeKit, iotivity) or transport (e.g., HTTP, CoAP), but rather a simple abstraction to simplify development.
+The purpose of the OWIN-D (Open Web Interface for Networked Devices) specification is to provide a standard framework for developing and interacting with devices and accessories in the broad Internet of Things marketplace.     It is not yet another interoperability standard nor specificies a particular protocol (e.g., HomeKit, iotivity) or transport (e.g., HTTP, CoAP), but rather a simple abstraction to simplify development.
 
 OWIN-D is just a specification, not an implementation or consumer app, but reference implementations already exist and some are linked at the end of this document.
 
