@@ -1,8 +1,6 @@
 [![OWIN-D](./owin-d.png)](http://owind.org)
 # Things
 
-## Definitions
-
 * **Ecosystem** &mdash; A collection of things that are addressable to each other (e.g., for discovery, transfer operatons etc.)
 
 * **Thing** &mdash; Every component in OWIN-D is a thing that can be connected to each other or the Internet.  A thing can be a Home, a Room, a Device, or even a Service within a device (for example, a garage door opener might have a door-opener service, a light-bulb service, and a firmware update service).
@@ -42,8 +40,7 @@ The full power of the OWIN-D specification comes from its extensions and a broad
 * **Trigger** &mdash; A trigger that plays a particular scene or zone on/off on a given schedule (every, date, time, delay, repeat)
 
 
-
-## Standard Properties
+## Properties of Things
 
 Every OWIN-D THING includes the following properties:
 
