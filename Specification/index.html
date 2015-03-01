@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OWIN-D v1.0 - OWIN-D</title>
+  <title>OWIN-D Specification V1.0 - OWIN-D</title>
   
 
   
@@ -51,12 +51,12 @@
                 </li>
             
                 <li class="toctree-l1 ">
-                    <a class="" href="../Things">Things</a>
+                    <a class="" href="../Things">Devices and Things</a>
                     
                 </li>
             
                 <li class="toctree-l1 ">
-                    <a class="" href="../Functions">Functions</a>
+                    <a class="" href="../Functions">Core Functions</a>
                     
                 </li>
             
@@ -67,7 +67,7 @@
         <span>Specification</span>
             
                 <li class="toctree-l1 current">
-                    <a class="current" href=".">OWIN-D v1.0</a>
+                    <a class="current" href=".">OWIN-D Specification V1.0</a>
                     
                         <ul>
                         
@@ -127,7 +127,7 @@
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="..">Docs</a> &raquo;</li>
-    <li>OWIN-D v1.0</li>
+    <li>OWIN-D Specification V1.0</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -352,7 +352,7 @@
 <tbody>
 <tr>
 <td align="left">Yes</td>
-<td><strong>owind.Id</strong></td>
+<td><strong>owind.DeviceId</strong></td>
 <td>Persistent identifier for this DEVICE, typically the MAC address;  the DeviceId MAY be stable for as long as a DEVICE is in a given ECOSYSTEM</td>
 </tr>
 <tr>
@@ -395,7 +395,7 @@ context[&quot;owind.ModelNumber&quot;] = &quot;D-X500&quot;;
 context[&quot;owind.ModelUrl&quot;] = &quot;http://domabo.com/products/domabot/x500&quot;;
 context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
 context[&quot;owind.DeviceId&quot;] = &quot;1A:2B:3C:4D:5E:FF&quot;;
-context[&quot;owind.DeviceUrn&quot;] = &quot;urn:af6aacb6-17e0-45aa-9fc0-c4090f9c1f53&quot;;
+context[&quot;owind.Urn&quot;] = &quot;urn:af6aacb6-17e0-45aa-9fc0-c4090f9c1f53&quot;;
 context[&quot;owind.SetupCode&quot;] = &quot;098-45-211&quot;;
 context[&quot;owind.FriendlyName&quot;] = &quot;LimeRun Test OWIN-D Server&quot;;
 context[&quot;owind.SerialNumber&quot;] = &quot;1234567890&quot;;
@@ -779,9 +779,7 @@ function middleware_close()
 </li>
 </ul>
 <h2 id="8-extensions">8. Extensions</h2>
-<p>| Extension | Description |
-| --------- | ----------- |</p>
-<p>None defined at this time.  Extensions under consideration include Security, Pairing, Homekit, Nodekit.io, etc.</p>
+<p>None defined at this time.  Extensions under consideration include Multicast Transfer, Security, Pairing, Homekit, Nodekit.io, etc.</p>
 <h2 id="9-real-world-usage">9. Real World Usage</h2>
 <table>
 <thead>
@@ -805,7 +803,7 @@ function middleware_close()
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../Functions" class="btn btn-neutral" title="Functions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Functions" class="btn btn-neutral" title="Core Functions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
