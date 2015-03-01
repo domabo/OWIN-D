@@ -208,7 +208,7 @@ No | **owind.PresentationUrl** | URL to a presentation resource for this DEVICE.
 
 Required | OWIN-D Key Name | Value Description
 :------: | ------------- | -------------------------------------
-Yes | **owind.Id** | Persistent identifier for this DEVICE, typically the MAC address;  the DeviceId MAY be stable for as long as a DEVICE is in a given ECOSYSTEM
+Yes | **owind.DeviceId** | Persistent identifier for this DEVICE, typically the MAC address;  the DeviceId MAY be stable for as long as a DEVICE is in a given ECOSYSTEM
 Yes | **owind.Urn** | Unique Resource Name for this device, often used for validation on pairing and for resolve requests
 Yes | **owind.SetupCode** | Password code used during connection pairing
 Yes | **owind.FriendlyName** | User-friendly name for this DEVICE. It MUST have fewer than 256 Unicode characters
@@ -226,7 +226,7 @@ context["owind.ModelNumber"] = "D-X500";
 context["owind.ModelUrl"] = "http://domabo.com/products/domabot/x500";
 context["owind.PresentationUrl"] = "/img/img.jpg";
 context["owind.DeviceId"] = "1A:2B:3C:4D:5E:FF";
-context["owind.DeviceUrn"] = "urn:af6aacb6-17e0-45aa-9fc0-c4090f9c1f53";
+context["owind.Urn"] = "urn:af6aacb6-17e0-45aa-9fc0-c4090f9c1f53";
 context["owind.SetupCode"] = "098-45-211";
 context["owind.FriendlyName"] = "LimeRun Test OWIN-D Server";
 context["owind.SerialNumber"] = "1234567890";
@@ -429,10 +429,7 @@ Future updates to this standard may contain breaking changes (e.g. signature cha
 
 ## 8. Extensions
 
-| Extension | Description |
-| --------- | ----------- |
-
-None defined at this time.  Extensions under consideration include Security, Pairing, Homekit, Nodekit.io, etc.
+None defined at this time.  Extensions under consideration include Multicast Transfer, Security, Pairing, Homekit, Nodekit.io, etc.
 
 ## 9. Real World Usage
 
