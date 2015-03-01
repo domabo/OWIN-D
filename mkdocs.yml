@@ -10,6 +10,6 @@ pages:
 - ['About.md', 'Overview', 'About OWIN-D']
 - ['Things.md', 'Overview', 'Devices and Things']
 - ['Functions.md', 'Overview', 'Core Functions']
-- ['Specification.md', 'Specification', 'OWIN-D Specification V1.0']
+- ['Specification.md', 'Specification', 'OWIN-D Specification V1.1']
 theme:  readthedocs
 theme_dir: _theme
