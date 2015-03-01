@@ -8,8 +8,8 @@ site_favicon: favicon.ico
 pages:
 - ['index.md', 'Home']
 - ['About.md', 'Overview', 'About']
-- ['Things.md', 'Things', 'About']
-- ['Functions.md', 'Functions', 'About']
+- ['Things.md', 'Overview', 'Things']
+- ['Functions.md', 'Overview', 'Functions']
 - ['Specification.md', 'Specification', 'OWIN-D']
 theme:  readthedocs
 theme_dir: _theme
