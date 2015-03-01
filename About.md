@@ -3,115 +3,36 @@
 
 ## About
 
-The purpose of the OWIN-D specification is to provide an abstraction from any IoT (Internet of Things) or Web Services for Devices protocol.
+The purpose of the OWIN-D specification is to provide a standard framework for developing and interacting with devices and accessories in the broad Interent of Things marketplace.     It is not yet another interoperability standard nor specificies a particular protocol (e.g., HomeKit, iotivity) or transport (e.g., HTTP, CoAP), but rather a simple abstraction to simplify development.
 
-OWIN-D defines a standard framework for REST device servers written for io.js, Node.js and application/device logic. It works with any protocol such as COAP, WSDP, OIC iotivity, HomeKit, and can be a drop-in replacement for existing frameworks such as Connect/Express to re-use existing code.
+OWIN-D is just a specification, not an implementation or consumer app, but reference implementations already exist and some are linked at the end of this document.
 
-OWIN-D is a superset of the OWIN-JS specifications for HTTP and COAP servers, supporting Node.JS enterprise-grade servers, browser-apps, and constained device implementations.
-
-The goal of OWIN-D is to decouple transport and device logic and, by being an open standard, stimulate the open source ecosystem of Node.js web application/device development tools, without ties to any one framework or device protocol.
-
-OWIN-D expands the REST philosophy to web servers, internet of things, etc.
-
-## OWIN-D Things
-
-### Thing
-
-Every component in OWIN-D is a thing that can be connected to the Internet.  A thing can be a Home, a Room, a Device, or even a Service within a device (for example, a garage door opener might have a door-opener service, a light-bulb service, and a firmware update service).
-
-Every Thing has the following attributes:
-
-* URN &mdash; a persistent uniform resource name in the format urn:UUID.  It MUST be persistent across reboots
-* Class &mdash; the class to which the thing belongs (e.g., "light");  can be a custom URN
-* Interface &mdash; a generic interface used to interact with the thing
-* Manufacture Name
-* Friendly name
-* Manufacturer
-* Model
-* Serial Number
-* Password
-* Setup code (password)
-
-### Things Enabled by a Home Controller
-
-#### Home
-
-A home is a geographically-colocated grouping of devices usually used by one family resource unit or organization.  Sometimes known as a house or a a building.  
-
-An application called a home manager can manage multiple homes.
-
-#### Room
-
-A room is a geographical subdivision of a home, usually corresponding to a physical area.    Can include hallways, cupboards, etc.
+### Standards-Based
 
 
-### Things Enabled by a Zone Controller
+OWIN-D defines a standard framework for REST device containers that can be used with any protocol such as COAP, WSDP, OIC iotivity, Apple HomeKit, WSDP, and implementations based  on OWIN-D can even be a drop-in replacement for existing frameworks such as Connect/Express or ASP.NET V5 to re-use existing code.
 
-#### Zone
+OWIN-D is itself standards based, as an extension of the OWIN-JS specification, but specifically targeted for Internet of Things manufacturers and application developers.
 
-A zone is an optional grouping of Rooms in a Home, and/or a collection of Accessories that are related in some way (location, use, etc.).  Examples of zones include "outside lights", "upstairs rooms", "emergency lighting".
+### Does Not Replace Existing Standards
 
-A single device can be in multiple zones.
+There is no shortage of existing standards that are open, but even if they converge we still expect a fragmented marketplace of both open (e.g, iotivity, XMPP) and proprietary standards (e.g., HomeKit by Apple) that are likely to co-exist for some time under current business models.   
 
-### Things Enabled by a Scene Controller
+A device developer that wants to create a THING that can be used with one or more of these protocols can use OWIN-D to write the implementation once, but can rest assured that the underlying protocol is supported and even certified by the existing standards body.
 
-#### Service Group
+### Loosely Coupled  
 
-A service group is a logical collection of services on one or more devices
+The goal of OWIN-D is to decouple transport and device logic and, by being a free open-source standard (under Creative Commons), stimulate the open source ecosystem of IoT device development tools, without ties to any one framework or device protocols, while at the same time being used in commercial applications without restriction.
 
-#### Scene (action set)
+### Simple, Mature, REST Philosophy  
 
-A scene is a target collection characteristic operations applied to a service group (e.g., lock doors, dusk, movie time, etc.)
+OWIN-D expands the well-understood and mature REST philosophy from web servers to Internet of Things, etc., and thus removes most of the complexity traditionally inherent in writing applications for devices.
 
-### Things Enabled by a Timer Controller
+In particuarl, OWIN-D is defined in terms of a delegate structure and extensible property dictionaries that translate to any programming language. There is no assembly or library required. Implementing either the server or client side of the OWIN-D spec does not introduce a dependency to a project.
 
-#### Trigger
+### OWIN-D, OWIN-JS, and limerun 
 
-A trigger that plays a particular scene or zone on/off on a given schedule (every, date, time, delay, repeat)
-
-
-### Things native to the OWIN-D spec
-
-### Container
-
-Every device is hosted in a container.  A container can contain one or more devices.   A container is generally the addressable end-point for communicating with its child devices.   For example a Hue Bridge is the container for all its connected light bulb devices.
-
-### Device (Accessory)
-
-A device is an accessory or technology that a human can interact with or has interest in. 
-
-While a device  generally represents something in the real world, it can be logical (say a program running in a container on a Raspberry Pi that connects to an Internet Weather Service) or physical (such as a Hue Light bulb)
-
-### Service
-
-A service includes user-readable or controllable functions, like a light, and machine-functions like a firmware update service.
-
-A single device may have more than one user-controllable service. For example, a garage door opener has a door-opener service, and a light-bulb service.
-
-
-### Resource (Characteristic)
-
-A resource is a characteristic of a service;  each service can 
-
-Each resource has the following properties
-
-* URN &mdash; a persistent uniform resource name in the format urn:UUID
-* type (e.g., "brightness")
-* manufacturer description
-* format
-* units
-* interface (readable, writable, eventable)
-* max, min and step values
-* precision, maximum length
-
-At any given time, a resource will have one or more URIs to access it (e.g., coap://containerhost/devicename/servicename/resourcename ).  Unlike the URN these are not guaranteed to be persistent, even across reboots
-
-
-### Operation
-
-An operation that can be applied to a resource.
-
-Examples include "GET", "SET" or "PLAY"
+We recommend reviewing the [OWIN-JS Specification](http://owinjs.org) and [limerun framework](http://limerun.com) in conjunction with this OWIN-D specification.
 
 
 
