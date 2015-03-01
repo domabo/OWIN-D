@@ -1,5 +1,5 @@
 [![OWIN-D](./owin-d.png)](http://owind.org)
-#Specification v1.0 RC 
+#Specification v1.1.0 RC 
 * Title: Open Web Interface for Networked Devices (OWIN-D)
 * Author : OWIN-JS working group
 * Copyright : OWIN-JS contributors, Domabo 2015
@@ -280,7 +280,7 @@ The OWIN-JS application startup environment dictionary and each request will con
 
 Required | OWIN-D Key Name | Value Description
 :------: | ------------- | -------------------------------------
-Yes | **owind.Version** | Current version of OWIN-D supported (e.g., "1.0")
+Yes | **owind.Version** | Current version of OWIN-D supported (e.g., "1.1")
 Yes | **owind.Support** | OWIN-D Support Dictionary below 
 
 ### 5.1. OWIN-D Support Dictionary (Server)
