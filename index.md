@@ -3,7 +3,7 @@
 
 This is the official repository of the OWIN-D (Open Web Interface for Networked Devices) Specification. 
 
-The purpose of the OWIN-D specification is to provide a standard framework for developing and interacting with devices and accessories in the broad Internet of Things marketplace.     It is not yet another interoperability standard nor specificies a particular protocol (e.g., HomeKit, iotivity) or transport (e.g., HTTP, CoAP), but rather a simple abstraction to simplify development.
+The purpose of the OWIN-D specification is to provide a standard framework for developing and interacting with devices and accessories in the broad Internet of Things marketplace.     It is not yet another interoperability standard nor specificies a particular protocol (e.g., HomeKit, iotivity) or transport (e.g., HTTP, CoAP), but rather is an abstraction to simplify development.
 
 OWIN-D defines a standard framework for REST device containers that can be used with any protocol such as COAP, WSDP, OIC iotivity, Apple HomeKit, WSDP, and implementations based  on OWIN-D can even be a drop-in replacement for existing frameworks such as Connect/Express or ASP.NET V5 to re-use existing code.
 
@@ -25,7 +25,7 @@ OWIN-D is the specification and contains no implementation source code.   Howeve
 ## Specifications
 [OWIN-D Specification](./Specification.md)  (this repository)
 
-[OWIN-JS Specification](http://owinjs.org)  (core REST framework which OWIN-D extends)
+[OWIN-JS Specification](http://owinjs.org/Specification)  (core REST framework which OWIN-D extends)
 
 ## License
 Creative Commons Attribution 3.0 Unported License

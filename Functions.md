@@ -1,8 +1,6 @@
 [![OWIN-D](./owin-d.png)](http://owind.org)
 # Core Functions
 
-## Definitions
-
 THe OWIN-D specification provides for a number of common functions that apply to nearly all IoT (Internet of Things) or device networks, regardless of transport protocol (IP, bluetooth, radio wave, etc.)
 
 * **Discovery** &mdash; A set of coordinated peer and/or registry functions that allow ecosystem things to find and connect to each other.  
