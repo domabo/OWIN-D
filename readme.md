@@ -2,7 +2,7 @@
 
 ## This Repository
 
-This is the official repository of the OWIN-D (Open Web Interface for Node.Js and .NET Devices) Specification. 
+This is the official repository of the OWIN-D (Open Web Interface for Networked Devices) Specification. 
 
 Browser the source directories on Github or review formatted online at [owind.org](http://owind.org)
 
