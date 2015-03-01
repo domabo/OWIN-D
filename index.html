@@ -43,10 +43,10 @@
       <ul class="current">
     
         
-        <span>Specification</span>
+        <span>Overview</span>
             
                 <li class="toctree-l1 ">
-                    <a class="" href="Specification/">OWIN-D</a>
+                    <a class="" href="About/">About</a>
                     
                 </li>
             
@@ -54,10 +54,32 @@
 
     
         
-        <span>Overview</span>
+        <span>Things</span>
             
                 <li class="toctree-l1 ">
-                    <a class="" href="About/">About</a>
+                    <a class="" href="Things/">About</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Functions</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="Functions/">About</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Specification</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="Specification/">OWIN-D</a>
                     
                 </li>
             
@@ -99,11 +121,11 @@
             <div class="section">
               <p><a href="http://owind.org"><img alt="OWIN-D" src="././owin-d.png" /></a></p>
 <h2 id="about">About</h2>
-<p>The purpose of the OWIN-D specification is to provide an abstraction from any IoT (Internet of Things) or Web Services for Devices protocol.</p>
-<p>OWIN-D defines a standard framework for REST device servers written for io.js, Node.js and application/device logic. It works with any protocol such as COAP, WSDP, OIC iotivity, HomeKit, and can be a drop-in replacement for existing frameworks such as Connect/Express to re-use existing code.</p>
-<p>OWIN-D is a superset of the OWIN-JS specifications for HTTP and COAP servers, supporting Node.JS enterprise-grade servers, browser-apps, and constained device implementations.</p>
-<p>The goal of OWIN-D is to decouple transport and device logic and, by being an open standard, stimulate the open source ecosystem of Node.js web application/device development tools, without ties to any one framework or device protocol.</p>
-<p>OWIN-D expands the REST philosophy to web servers, internet of things, etc.</p>
+<p>The purpose of the OWIN-D specification is to provide a standard framework for developing and interacting with devices and accessories in the broad Interent of Things marketplace.     It is not yet another interoperability standard nor specificies a particular protocol (e.g., HomeKit, iotivity) or transport (e.g., HTTP, CoAP), but rather a simple abstraction to simplify development.</p>
+<p>OWIN-D defines a standard framework for REST device containers that can be used with any protocol such as COAP, WSDP, OIC iotivity, Apple HomeKit, WSDP, and implementations based  on OWIN-D can even be a drop-in replacement for existing frameworks such as Connect/Express or ASP.NET V5 to re-use existing code.</p>
+<p>OWIN-D is itself standards based, as an extension of the OWIN-JS specification, but specifically targeted for Internet of Things manufacturers and application developers.</p>
+<p>There is no shortage of existing standards that are open, but even if they converge we still expect a fragmented marketplace of both open (e.g, iotivity, XMPP) and proprietary standards (e.g., HomeKit by Apple) that are likely to co-exist for some time under current business models.   </p>
+<p>A device developer that wants to create a THING that can be used with one or more of these protocols can use OWIN-D to write the implementation once, but can rest assured that the underlying protocol is supported and even certified by the existing standards body.</p>
 <h2 id="reference-implementations">Reference Implementations</h2>
 <p>OWIN-D is the specification and contains no implementation source code.   However, reference implementations with fully functioning application and server stacks are only one click away:</p>
 <ul>
@@ -116,7 +138,7 @@
 </ul>
 <h2 id="specifications">Specifications</h2>
 <p><a href="Specification/">OWIN-D Specification</a>  (this repository)</p>
-<p><a href="http://owinjs.org">OWIN-JS Specification</a>  (core REST technology on which OWIN-D extends)</p>
+<p><a href="http://owinjs.org">OWIN-JS Specification</a>  (core REST framework which OWIN-D extends)</p>
 <h2 id="license">License</h2>
 <p>Creative Commons Attribution 3.0 Unported License</p>
 
@@ -126,7 +148,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Specification/" class="btn btn-neutral float-right" title="OWIN-D"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="About/" class="btn btn-neutral float-right" title="About"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -156,7 +178,7 @@
             <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
         
       <span><a href="" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="Specification/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span style="margin-left: 15px"><a href="About/" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 </body>

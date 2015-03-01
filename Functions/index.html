@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>About - OWIN-D</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../_theme/css/theme_extra.css" rel="stylesheet">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> OWIN-D</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+        <span>Overview</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../About">About</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Things</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../Things">About</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Functions</span>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">About</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#core-functions">Core Functions</a></li>
+                            
+                                <li><a class="toctree-l3" href="#definitions">Definitions</a></li>
+                            
+                                <li><a class="toctree-l3" href="#discovery">Discovery</a></li>
+                            
+                                <li><a class="toctree-l3" href="#transfer">Transfer</a></li>
+                            
+                                <li><a class="toctree-l3" href="#eventing">Eventing</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Specification</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../Specification">OWIN-D</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href=".."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    <li>About</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/OWIN-JS/OWIN-D/" class="icon icon-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <p><a href="http://owind.org"><img alt="OWIN-D" src=".././owin-d.png" /></a></p>
+<h1 id="core-functions">Core Functions</h1>
+<h2 id="definitions">Definitions</h2>
+<p>THe OWIN-D specification provides for a number of common functions that apply to nearly all IoT (Internet of Things) or device networks, regardless of transport protocol (IP, bluetooth, radio wave, etc.)</p>
+<ul>
+<li>
+<p><strong>Discovery</strong> &mdash; A set of coordinated peer and/or registry functions that allow ecosystem things to find and connect to each other.  </p>
+</li>
+<li>
+<p><strong>Transfer</strong> &mdash; An operation that is sent to a RESOURCE on a target DEVICE within the ecosystem. Examples include "GET", "SET" or "PLAY".  It MAY return a response.</p>
+</li>
+<li>
+<p><strong>Eventing</strong> &mdash; The ability for a subscriber to receive a periodic stream of observations from a publisher</p>
+</li>
+</ul>
+<p>These core functions MAY abstract and include underlying functions such as <strong>meta data exchange</strong>, <strong>pairing</strong>, <strong>acknowledgments</strong>, <strong>confirmable send</strong>, <strong>policy</strong>, <strong>security</strong>, etc.   Equally these functions SHOULD be available as explicit extensions in the environment dictionary.</p>
+<h2 id="discovery">Discovery</h2>
+<h3 id="register">Register</h3>
+<p>Function that registers a DEVICE or SERVICE and starts advertising it on the underlying transport server.  Advertising includes sending HELLO messages, and responding to discovery probe and resolve messages.</p>
+<h3 id="unregister">Unregister</h3>
+<p>Function that stops advertising a registered device.</p>
+<h3 id="probe">Probe</h3>
+<p>Function that probes for a DEVICE in the local ECOSYSTEM.  </p>
+<h3 id="resolve">Resolve</h3>
+<p>Function that resolves the transport location for a given DEVICE by unique identifier in the local ECOSYSTEM.  </p>
+<h2 id="transfer">Transfer</h2>
+<h3 id="createtransferrequest">CreateTransferRequest</h3>
+<p>Function that creates an an outgoing request to a given resource.   </p>
+<h2 id="eventing">Eventing</h2>
+<h3 id="register_1">Register</h3>
+<p>Function that registers a RESOURCE and makes it available to register subscribe requests.</p>
+<h3 id="unregister_1">Unregister</h3>
+<p>Function that stops publishing events for a registered RESOURCE.</p>
+<h3 id="sendobservation">SendObservation</h3>
+<p>Function that sends an event observation to all current subscribers for the resource</p>
+<h3 id="createtransferrequest_1">CreateTransferRequest</h3>
+<p>See Transfer section above.  Optionally subscribes to all future observations for this remote resource</p>
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Specification" class="btn btn-neutral float-right" title="OWIN-D"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Things" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+            <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+        
+      <span><a href="../Things" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../Specification" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>

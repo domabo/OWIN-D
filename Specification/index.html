@@ -43,29 +43,10 @@
       <ul class="current">
     
         
-        <span>Specification</span>
+        <span>Overview</span>
             
-                <li class="toctree-l1 current">
-                    <a class="current" href=".">OWIN-D</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l2"><a href="#specification-v09-release">Specification v0.9 RELEASE</a></li>
-                            
-                                <li><a class="toctree-l3" href="#contents">Contents</a></li>
-                            
-                                <li><a class="toctree-l3" href="#146-overview">1. Overview</a></li>
-                            
-                                <li><a class="toctree-l3" href="#owin-d-functions">OWIN-D Functions</a></li>
-                            
-                                <li><a class="toctree-l3" href="#owin-d-properties">OWIN-D Properties</a></li>
-                            
-                                <li><a class="toctree-l3" href="#owin-d-containers">OWIN-D Containers</a></li>
-                            
-                                <li><a class="toctree-l3" href="#owin-d-server-capabilities">OWIN-D Server Capabilities</a></li>
-                            
-                        
-                        </ul>
+                <li class="toctree-l1 ">
+                    <a class="" href="../About">About</a>
                     
                 </li>
             
@@ -73,10 +54,65 @@
 
     
         
-        <span>Overview</span>
+        <span>Things</span>
             
                 <li class="toctree-l1 ">
-                    <a class="" href="../About">About</a>
+                    <a class="" href="../Things">About</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Functions</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../Functions">About</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Specification</span>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">OWIN-D</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#specification-v10-alpha-release">Specification v1.0 Alpha RELEASE</a></li>
+                            
+                                <li><a class="toctree-l3" href="#contents">Contents</a></li>
+                            
+                                <li><a class="toctree-l3" href="#146-overview">1. Overview</a></li>
+                            
+                                <li><a class="toctree-l3" href="#246-definitions">2. Definitions</a></li>
+                            
+                                <li><a class="toctree-l3" href="#346-application-execution">3. Application Execution</a></li>
+                            
+                                <li><a class="toctree-l3" href="#446-owin-d-context-dictionary">4. OWIN-D Context Dictionary</a></li>
+                            
+                                <li><a class="toctree-l3" href="#41-owin-d-device-context">4.1. OWIN-D Device Context</a></li>
+                            
+                                <li><a class="toctree-l3" href="#42-service-context-properties">4.2. Service Context Properties</a></li>
+                            
+                                <li><a class="toctree-l3" href="#43-resource-context-properties">4.3. Resource Context Properties</a></li>
+                            
+                                <li><a class="toctree-l3" href="#546-owin-d-capabilities">5. OWIN-D Capabilities</a></li>
+                            
+                                <li><a class="toctree-l3" href="#6-error-handling">6. Error Handling</a></li>
+                            
+                                <li><a class="toctree-l3" href="#746-versioning">7. Versioning</a></li>
+                            
+                                <li><a class="toctree-l3" href="#8-extensions">8. Extensions</a></li>
+                            
+                                <li><a class="toctree-l3" href="#9-real-world-usage">9. Real World Usage</a></li>
+                            
+                        
+                        </ul>
                     
                 </li>
             
@@ -117,106 +153,164 @@
           <div role="main">
             <div class="section">
               <p><a href="http://owind.org"><img alt="OWIN-D" src=".././owin-d.png" /></a></p>
-<h1 id="specification-v09-release">Specification v0.9 RELEASE</h1>
+<h1 id="specification-v10-alpha-release">Specification v1.0 Alpha RELEASE</h1>
 <ul>
 <li>Author : OWIN-JS working group</li>
-<li>Copyright : OWIN-JS contributors</li>
+<li>Copyright : OWIN-JS contributors, Domabo 2015</li>
 <li>License : <a href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 Unported License</a></li>
 </ul>
 <h2 id="contents">Contents</h2>
-<p>1. <a href="#Overview">Overview</a></p>
-<p>2. <a href="#2-definitions">Definitions</a></p>
-<p>3. <a href="#3-request-execution">Request Execution</a></p>
+<p>1. <a href="#1-overview">Overview</a></p>
+<p>2. <a href="#2-Definitions">Definitions</a></p>
+<p>2.1. <a href="#21-owin-d-things">OWIN-D Things</a></p>
+<p>2.2. <a href="#22-owin-d-extensions">OWIN-D Extensions</a></p>
+<p>2.3. <a href="#23-owin-d-core-functions">OWIN-D Core Functions</a> </p>
+<p>2.3. <a href="#24-owin-d-containers">OWIN-D Containers</a></p>
+<p>3. <a href="#3-application-execution">Application Execution</a> </p>
 <p>3.1. <a href="#31-application-delegate">Application Delegate</a></p>
 <p>3.2. <a href="#32-environment">Environment</a></p>
-<p>3.3. <a href="#33-headers">Headers</a></p>
-<p>3.4. <a href="#34-request-body-100-continue-and-completed-semantics">Request Body</a></p>
-<p>3.5. <a href="#35-response-body">Response Body</a></p>
-<p>3.6. <a href="#36-request-lifetime">Request Lifetime</a></p>
-<p>4. <a href="#4-application-startup">Application Startup</a></p>
-<p>5. <a href="#5-uri-reconstruction">URI Reconstruction</a></p>
-<p>5.1. <a href="#51-uri-scheme">URI Scheme</a></p>
-<p>5.2. <a href="#52-hostname">Hostname</a></p>
-<p>5.3. <a href="#53-paths">Paths</a></p>
-<p>5.4. <a href="#54-uri-reconstruction-algorithm">URI Reconstruction Algorithm</a></p>
-<p>5.5. <a href="#55-percent-encoding">Percent-encoding</a></p>
+<p>4. <a href="#4-owin-d-context-dictionary">OWIN-D Context Dictionary</a></p>
+<p>4.1. <a href="#41-owin-d-device-context">OWIN-D Device Context</a></p>
+<p>4.2. <a href="#42-serice-context-properties">Service Context Properties</a></p>
+<p>4.3. <a href="#43-resource-context-properties">Resource Context Properties</a></p>
+<p>4.3.1. <a href="#431-optional-resource-format-context-properties">Optional Resource Format Context Properties</a></p>
+<p>5. <a href="#5-owin-d-capabilities">OWIN-D Capabilities</a></p>
+<p>5.1. <a href="#51-owin-d-support-dictionary-(server)">OWIN-D Support Dictionary (Server)</a></p>
+<p>5.2. <a href="#52-owin-d-support-dictionary-(client)">OWIN-D Support Dictionary (Client)</a></p>
+<p>5.3. <a href="#53-owin-d-capabilities-api-refereince">OWIN-D Capabilities API Reference</a></p>
 <p>6. <a href="#6-error-handling">Error Handling</a></p>
 <p>6.1. <a href="#61-application-errors">Application Errors</a></p>
 <p>6.2. <a href="#62-server-errors">Server Errors</a></p>
 <p>7. <a href="#7-versioning">Versioning</a></p>
 <p>8. <a href="#8-extensions">Extensions</a></p>
+<p>9. <a href="http://www.ietf.org/rfc/rfc2119.txt">Real World Usage</a></p>
 <h2 id="146-overview">1. Overview</h2>
-<p>The purpose of this OWIN-D specification is to provide an abstraction from any IoT (Internet of Things) or Web Services for Devices protocol.</p>
-<p>OWIN-D defines a standard framework for REST device containers written for io.js, Node.js and application/device logic. It works with any protocol such as COAP, WSDP, OIC iotivity, Apple HomeKit, and can be a drop-in replacement for existing frameworks such as Connect/Express to re-use existing code.</p>
-<p>OWIN-D is an extension of the OWIN-JS specification specifically targeted for Internet of Things manufacturers and application developers.</p>
-<p>The goal of OWIN-D is to decouple transport and device logic and, by being an open standard, stimulate the open source ecosystem of Node.js web application/device development tools, without ties to any one framework or device protocol.</p>
-<p>OWIN-D expands the REST philosophy to web servers, internet of things, etc.</p>
-<p>OWIN-D is defined in terms of a delegate structure. There is no assembly. Implementing either the host or application side the OWIN-JS spec does not introduce a dependency to a project.</p>
-<p>In this document, the Node.js <code>function</code> and C# <code>Action</code>/<code>Func</code> syntax is used to notate some delegate structures.   However, the delegate structure could be equivalently represented with other native functions, CLR interfaces, or named delegates. This is by design; when implementing OWIN-D, choose a delegate representation that works for you and your stack.</p>
-<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.</p>
-<h2 id="owin-d-functions">OWIN-D Functions</h2>
-<h3 id="register-and-advertise-deviceserviceresource">Register and Advertise Device/Service/Resource</h3>
-<h3 id="invoke-handler-for-requested-resource-operation-server">Invoke handler for requested resource operation  (server)</h3>
-<h3 id="publish-event-to-all-subscribers-server">Publish Event to all Subscribers (server)</h3>
-<h3 id="request-resource-operation-client">Request Resource Operation  (client)</h3>
-<h3 id="stop-advertising">Stop Advertising</h3>
-<h3 id="discovery-probe">Discovery Probe</h3>
-<p>Find the devices that meet the given criteria (all, of type lighting, etc.)</p>
-<h3 id="discovery-resolve">Discovery Resolve</h3>
-<p>Find the current URIs for a given device URN</p>
-<h2 id="owin-d-properties">OWIN-D Properties</h2>
-<h3 id="device-info">Device Info</h3>
-<table>
-<thead>
-<tr>
-<th align="left">Required</th>
-<th>OWIN-D Key Name</th>
-<th>Value Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Yes</td>
-<td><strong>owind.Manufacturer</strong></td>
-<td>Name of the manufacturer of the DEVICE. It MUST have fewer than 256 Unicode characters</td>
-</tr>
-<tr>
-<td align="left">Yes</td>
-<td><strong>owind.ManufacturerUrl</strong></td>
-<td>URL to a Web site for the manufacturer of the DEVICE. It MUST have fewer than 2,048 octets.</td>
-</tr>
-<tr>
-<td align="left">Yes</td>
-<td><strong>owind.ModelName</strong></td>
-<td>User-friendly name for this model of device chosen by the manufacturer. It MUST have fewer than 256 Unicode characters</td>
-</tr>
-<tr>
-<td align="left">Yes</td>
-<td><strong>owind.ModelNumber</strong></td>
-<td>Model number for this model of DEVICE. It MUST have fewer than 256 Unicode characters.</td>
-</tr>
-<tr>
-<td align="left">Yes</td>
-<td><strong>owind.ModelUrl</strong></td>
-<td>URL to a Web site for this model of DEVICE. It MUST have fewer than 2,048 octets.</td>
-</tr>
-<tr>
-<td align="left">Yes</td>
-<td><strong>owind.PresentationUrl</strong></td>
-<td>URL to a presentation resource for this DEVICE. It MAY be relative to the transport address over which metadata was retrieved, and MUST have fewer than 2,048 octets.  If PresentationUrl is specified, the DEVICE MAY provide the resource in multiple formats, but MUST at least provide an HTML page.  CLIENTs and DEVICEs MAY use transport content negotiation [e.g., HTTP/1.1, COAP/1.0] to determine the format and content of the presentation resource.  DEVICEs that use a relative URL MAY use Transport Redirection (e.g., 3xx codes for HTTP/1.1) to direct CLIENTs to a dedicated content server running on another port.</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="js">context[&quot;owind.Manufacturer&quot;] = &quot;Domabo&quot;;
-context[&quot;owind.ManufacturerUrl&quot;] = &quot;http://domabo.com&quot;;
-context[&quot;owind.ModelName&quot;] = &quot;Domabot X500&quot;;
-context[&quot;owind.ModelNumber&quot;] = &quot;D-X500&quot;;
-context[&quot;owind.ModelUrl:&quot;] = &quot;http://domabo.com/products/domabot/x500&quot;;
-context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
+<p>The purpose of this OWIN-D specification is to provide a standard framework for developing and interacting with devices and accessories in the broad Interent of Things marketplace.     It is not yet another interoperability standard nor specificies a particular protocol (e.g., HomeKit, iotivity) or transport (e.g., HTTP, CoAP), but rather a simple abstraction to simplify development.</p>
+<p>OWIN-D is just a specification, not an implementation or consumer app, but reference implementations already exist and some are linked at the end of this document.</p>
+<h3 id="standards-based">Standards-Based</h3>
+<p>OWIN-D defines a standard framework for REST device containers that can be used with any protocol such as COAP, WSDP, OIC iotivity, Apple HomeKit, WSDP, and implementations based  on OWIN-D can even be a drop-in replacement for existing frameworks such as Connect/Express or ASP.NET V5 to re-use existing code.</p>
+<p>OWIN-D is itself standards based, as an extension of the OWIN-JS specification, but specifically targeted for Internet of Things manufacturers and application developers.</p>
+<h3 id="does-not-replace-existing-standards">Does Not Replace Existing Standards</h3>
+<p>There is no shortage of existing standards that are open, but even if they converge we still expect a fragmented marketplace of both open (e.g, iotivity, XMPP) and proprietary standards (e.g., HomeKit by Apple) that are likely to co-exist for some time under current business models.   </p>
+<p>A device developer that wants to create a THING that can be used with one or more of these protocols can use OWIN-D to write the implementation once, but can rest assured that the underlying protocol is supported and even certified by the existing standards body.</p>
+<h3 id="loosely-coupled">Loosely Coupled</h3>
+<p>The goal of OWIN-D is to decouple transport and device logic and, by being a free open-source standard (under Creative Commons), stimulate the open source ecosystem of IoT device development tools, without ties to any one framework or device protocols, while at the same time being used in commercial applications without restriction.</p>
+<h3 id="simple-mature-rest-philosophy">Simple, Mature, REST Philosophy</h3>
+<p>OWIN-D expands the well-understood and mature REST philosophy from web servers to Internet of Things, etc., and thus removes most of the complexity traditionally inherent in writing applications for devices.</p>
+<p>In particuarl, OWIN-D is defined in terms of a delegate structure and extensible property dictionaries that translate to any programming language. There is no assembly or library required. Implementing either the server or client side of the OWIN-D spec does not introduce a dependency to a project.</p>
+<p>In this document, the ECMAScript, Javascript, Node.js <code>function</code> and C# <code>Action</code>/<code>Func</code> syntax is used to notate some delegate structures.   However, the delegate structure could be equivalently represented with other native functions, CLR interfaces, or named delegates. This is by design; when implementing OWIN-D, choose a delegate representation that works for you and your stack.</p>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119][25].</p>
+<h3 id="owin-d-owin-js-and-limerun">OWIN-D, OWIN-JS, and limerun</h3>
+<p>We recommend reviewing the <a href="http://owinjs.org">OWIN-JS Specification</a> and <a href="http://limerun.com">limerun framework</a> in conjunction with this OWIN-D specification.</p>
+<h2 id="246-definitions">2. Definitions</h2>
+<h3 id="21-owin-d-things">2.1. OWIN-D Things</h3>
+<ul>
+<li>
+<p><strong>Ecosystem</strong> &mdash; A collection of things that are addressable to each other (e.g., for discovery, transfer operatons etc.)</p>
+</li>
+<li>
+<p><strong>Thing</strong> &mdash; Every component in OWIN-D is a thing that can be connected to each other or the Internet.  A thing can be a Home, a Room, a Device, or even a Service within a device (for example, a garage door opener might have a door-opener service, a light-bulb service, and a firmware update service).</p>
+</li>
+<li>
+<p><strong>Container</strong> &mdash; Every device is hosted in a container.  A container can contain one or more devices.   A container is generally the addressable end-point for communicating with its child devices.   For example a Hue Bridge is the container for all its connected light bulb devices.</p>
+</li>
+<li>
+<p><strong>Device</strong> (or Accessory) &mdash; A device is an accessory or technology that a human can interact with or has interest in. While a device  generally represents something in the real world, it can be logical (say a program running in a container on a Raspberry Pi that connects to an Internet Weather Service) or physical (such as a Hue Light bulb)</p>
+</li>
+<li>
+<p><strong>Service</strong> &mdash; A service includes user-readable or controllable functions, like a light, and machine-functions like a firmware update service.   A single device may have more than one user-controllable service. For example, a garage door opener has a door-opener service, and a light-bulb service.</p>
+</li>
+<li>
+<p><strong>Resource</strong> (or Characteristic) &mdash; A resource is a characteristic of a service; at any given time, a resource will have one or more URIs to access it (e.g., <code>coap://containerhost/devicename/servicename/resourcename</code>).  Unlike the URN these are not guaranteed to be persistent, even across reboots</p>
+</li>
+</ul>
+<h3 id="22-owin-d-extensions">2.2. OWIN-D Extensions</h3>
+<p>The full power of the OWIN-JS specification comes from its extensions and a broad array of middleware, and OWIN-D is no different.  In addition to the above OWIN-D definitions for this specification, standard OWIN-D extensions also define:</p>
+<ul>
+<li>
+<p><strong>Home</strong> &mdash; A home is a geographically-colocated grouping of devices usually used by one family resource unit or organization.  Sometimes known as a house or a a building.  An application called a home manager can manage multiple homes (e.g., house and guest cottage, primary and vacation home, etc.)</p>
+</li>
+<li>
+<p><strong>Room</strong> &mdash; A room is a geographical subdivision of a home, usually corresponding to a physical area.    Can include hallways, cupboards, etc.</p>
+</li>
+<li>
+<p><strong>Zone</strong> &mdash; A zone is an optional grouping of Rooms in a Home, and/or a collection of Accessories that are related in some way (location, use, etc.).  Examples of zones include "outside lights", "upstairs rooms", "emergency lighting".  A single device can be in multiple zones.</p>
+</li>
+<li>
+<p><strong>Service Group</strong> &mdash; A service group is a logical collection of services on one or more devices</p>
+</li>
+<li>
+<p><strong>Scene</strong> &mdash; A scene is a target collection characteristic operations applied to a service group (e.g., lock doors, dusk, movie time, etc.)</p>
+</li>
+<li>
+<p><strong>Trigger</strong> &mdash; A trigger that plays a particular scene or zone on/off on a given schedule (every, date, time, delay, repeat)</p>
+</li>
+</ul>
+<p>Not all OWIN-D implementations will implement these extensions, and a DEVICE MAY ONLY assume their capability when indicated in the Server.Capabilities dictionary</p>
+<h3 id="23-owin-d-core-functions">2.3. OWIN-D Core Functions</h3>
+<p>THe OWIN-D specification provides for a number of common functions that apply to nearly all IoT (Internet of Things) or device networks, regardless of transport protocol (IP, bluetooth, radio wave, etc.)</p>
+<ul>
+<li>
+<p><strong>Discovery</strong> &mdash; A set of coordinated peer and/or registry functions that allow ecosystem things to find and connect to each other.  </p>
+</li>
+<li>
+<p><strong>Transfer</strong> &mdash; An operation that is sent to a RESOURCE on a target DEVICE within the ecosystem. Examples include "GET", "SET" or "PLAY".  It MAY return a response.</p>
+</li>
+<li>
+<p><strong>Eventing</strong> &mdash; The ability for a subscriber to receive a periodic stream of observations from a publisher</p>
+</li>
+</ul>
+<p>These core functions MAY abstract and include underlying functions such as <strong>meta data exchange</strong>, <strong>pairing</strong>, <strong>acknowledgments</strong>, <strong>confirmable send</strong>, <strong>policy</strong>, <strong>security</strong>, etc.   Equally these functions SHOULD be available as explicit extensions in the environment dictionary.</p>
+<h3 id="23-owin-d-containers">2.3. OWIN-D Containers</h3>
+<p>A CONTAINER is just a server that advertises and responds to requests for multiple devices.  All OWIN-D servers are CONTAINER, they MAY contain one or more devices.</p>
+<h2 id="346-application-execution">3. Application Execution</h2>
+<p>As an extension to OWIN-JS, the OWIN-D specification follows the execution model of OWIN-JS.   In summary, an OWIN-D server invokes an application (providing as arguments an environment dictionary with request and response headers and bodies); an application either populates a response or indicates an error.  </p>
+<p>On startup, an OWIN-D server provides the environment dictionary (which is also provided on each request) which allows for device registration for each DEVICE, SERVICE and RESOURCE hosted by by the application (CONTAINER).</p>
+<h3 id="31-application-delegate">3.1. Application Delegate</h3>
+<p>The primary interface in OWIN-JS and OWIN-D is called the <em>application delegate</em> or <em>AppFunc</em>. An application delegate takes the Dictionary environment and returns a Promise or a Task when it has finished processing.</p>
+<h4 id="owin-js-nodejs-appfunc-returns-a-promisea">OWIN-JS Node.js AppFunc (returns a Promise/A)</h4>
+<pre><code>var myAppFuncPromise = function() {...};
 </code></pre>
-
-<h3 id="device-info_1">Device Info</h3>
-<h4 id="model-definitions">Model Definitions</h4>
+<p>where <code>this</code> is set to the Dictionary environment and <code>myAppFuncPromise</code> is a Promise/A promise that can be chained with     <code>myAppFuncPromise.then(... , ... )</code> etc.</p>
+<h4 id="owin-js-net-appfunc-returns-a-task">OWIN-JS .NET AppFunc (returns a Task)</h4>
+<pre><code>using AppFunc = Func&lt;
+    IDictionary&lt;string, object&gt;, // Environment
+    Task&gt;; // Done
+</code></pre>
+<blockquote>
+<p>The application MUST eventually complete the returned <em>task/promise</em>, or throw an exception.</p>
+</blockquote>
+<h3 id="32-environment">3.2. Environment</h3>
+<p>The Environment object stores information about the request, the response, and any relevant server state.  The server is responsible for providing body streams and header collections for both the request and response in the initial call. The application then populates the appropriate fields with response data, writes the response body, and returns when done.  </p>
+<ul>
+<li>
+<p>The environment object MUST be non-null, mutable and MUST contain the keys listed as required in the <a href="http://owinjs.com">OWIN-JS Specification</a>.  Any device specific information SHOULD be added using the keys in the tables later in this OWIN-D specification</p>
+</li>
+<li>
+<p>Keys MUST be compared using StringComparer.Ordinal.</p>
+</li>
+<li>
+<p>The values associated with the keys MUST be non-null, unless otherwise specified</p>
+</li>
+<li>
+<p>The implementation MAY provide aliases that are convenient to access in the selected programming language chosen (i.e., ECMAScript/JavaScript, C#) to avoid <code>context["owin.Key"]</code> type accessors in favor of <code>this.owin.Key</code> (for intellitype, strong typing, capitalization conventions, separation of <code>request</code> and <code>response</code> objects, etc.).  </p>
+</li>
+<li>
+<p>If a server does not implement alias names, middleware such as <a href="http://github.com/limerun/core">limerun</a> MAY be used to add such alias names.  </p>
+</li>
+<li>
+<p>Periods in <strong>OWIN-D Key Names</strong> are considered part of the single string and therefore require quotes for access in most C-style and ECMAScript languages (e.g., <code>var serial = context["owind.SerialNumber"];</code>).</p>
+</li>
+<li>
+<p>Implementations of OWIN-D servers and/or middleware harnesses MAY omit the context variable as an explicit parameter for applications and middleware functions and instead set the base language's context object (e.g., <code>this</code> in ECMAScript/Javascript).</p>
+</li>
+<li>
+<p>The environment dictionary SHOULD allow additional prototype methods to be added to its prototype object, to facilitate alias implementations that are  defined once per server instance</p>
+</li>
+</ul>
+<h2 id="446-owin-d-context-dictionary">4. OWIN-D Context Dictionary</h2>
+<h2 id="41-owin-d-device-context">4.1. OWIN-D Device Context</h2>
+<h3 id="device-model-properties">Device Model Properties</h3>
 <table>
 <thead>
 <tr>
@@ -258,7 +352,7 @@ context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
 </tr>
 </tbody>
 </table>
-<h4 id="device-definitions">Device Definitions</h4>
+<h3 id="device-instance-properties">Device Instance Properties</h3>
 <table>
 <thead>
 <tr>
@@ -271,7 +365,7 @@ context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
 <tr>
 <td align="left">Yes</td>
 <td><strong>owind.Id</strong></td>
-<td>Persistent identifier for this DEVICE, typically the MAC address;  the DeviceId MAY be stable for as long as a DEVICE is in a given HOME/network</td>
+<td>Persistent identifier for this DEVICE, typically the MAC address;  the DeviceId MAY be stable for as long as a DEVICE is in a given ECOSYSTEM</td>
 </tr>
 <tr>
 <td align="left">Yes</td>
@@ -310,7 +404,7 @@ context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
 context[&quot;owind.ManufacturerUrl&quot;] = &quot;http://domabo.com&quot;;
 context[&quot;owind.ModelName&quot;] = &quot;Domabot X500&quot;;
 context[&quot;owind.ModelNumber&quot;] = &quot;D-X500&quot;;
-context[&quot;owind.ModelUrl:&quot;] = &quot;http://domabo.com/products/domabot/x500&quot;;
+context[&quot;owind.ModelUrl&quot;] = &quot;http://domabo.com/products/domabot/x500&quot;;
 context[&quot;owind.PresentationUrl&quot;] = &quot;/img/img.jpg&quot;;
 context[&quot;owind.DeviceId&quot;] = &quot;1A:2B:3C:4D:5E:FF&quot;;
 context[&quot;owind.DeviceUrn&quot;] = &quot;urn:af6aacb6-17e0-45aa-9fc0-c4090f9c1f53&quot;;
@@ -320,7 +414,7 @@ context[&quot;owind.SerialNumber&quot;] = &quot;1234567890&quot;;
 context[&quot;owind.FirmwareVersion&quot;] = &quot;0.85A&quot;;
 </code></pre>
 
-<h4 id="service-definitions">Service Definitions</h4>
+<h2 id="42-service-context-properties">4.2. Service Context Properties</h2>
 <table>
 <thead>
 <tr>
@@ -362,7 +456,7 @@ context[&quot;owind.FirmwareVersion&quot;] = &quot;0.85A&quot;;
 </tr>
 </tbody>
 </table>
-<h3 id="resource-definitions">Resource Definitions</h3>
+<h2 id="43-resource-context-properties">4.3. Resource Context Properties</h2>
 <table>
 <thead>
 <tr>
@@ -404,7 +498,7 @@ context[&quot;owind.FirmwareVersion&quot;] = &quot;0.85A&quot;;
 </tr>
 </tbody>
 </table>
-<h3 id="optional-resource-format-definitions">Optional Resource Format Definitions</h3>
+<h3 id="431-optional-resource-format-context-properties">4.3.1. Optional Resource Format Context Properties</h3>
 <table>
 <thead>
 <tr>
@@ -447,31 +541,12 @@ context[&quot;owind.FirmwareVersion&quot;] = &quot;0.85A&quot;;
 </tbody>
 </table>
 <p>Example:</p>
-<pre><code class="js">serviceProperties[&quot;owind.ResourcePath&quot;] = [ &quot;/device1/lightservice&quot; ]
-brightnessProperties[&quot;owind.RequestPath&quot;] = [ &quot;http://127.0.0.1:12001/device1/lightservice/brightness&quot; ];
+<pre><code class="js">serviceProperties[&quot;owind.ResourcePath&quot;] =  &quot;/device1/lightservice&quot; 
+brightnessProperties[&quot;owind.RequestPath&quot;] = &quot;http://127.0.0.1:12001/device1/lightservice/brightness&quot;;
 </code></pre>
 
-<h2 id="owin-d-containers">OWIN-D Containers</h2>
-<p>A container is just a special form of an OWIN Device</p>
-<p>that MAY contain</p>
-<table>
-<thead>
-<tr>
-<th align="left">Required</th>
-<th>OWIN-D Key Name</th>
-<th>Value Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">No</td>
-<td><strong>owind.Devices</strong></td>
-<td>Array of DEVICE property dictionaries</td>
-</tr>
-</tbody>
-</table>
-<h2 id="owin-d-server-capabilities">OWIN-D Server Capabilities</h2>
-<p>The application startup properties dictionary and each request will contain ["server.Capabilities"] object containing:</p>
+<h2 id="546-owin-d-capabilities">5. OWIN-D Capabilities</h2>
+<p>The OWIN-JS application startup environment dictionary and each request will contain a ["server.Capabilities"] object which for OWIN-D incldues</p>
 <table>
 <thead>
 <tr>
@@ -484,7 +559,7 @@ brightnessProperties[&quot;owind.RequestPath&quot;] = [ &quot;http://127.0.0.1:1
 <tr>
 <td align="left">Yes</td>
 <td><strong>owind.Version</strong></td>
-<td>"1.0"</td>
+<td>Current version of OWIN-D supported (e.g., "1.0")</td>
 </tr>
 <tr>
 <td align="left">Yes</td>
@@ -493,42 +568,247 @@ brightnessProperties[&quot;owind.RequestPath&quot;] = [ &quot;http://127.0.0.1:1
 </tr>
 </tbody>
 </table>
-<h3 id="owin-d-support-dictionary">OWIN-D Support Dictionary</h3>
+<h3 id="51-owin-d-support-dictionary-server">5.1. OWIN-D Support Dictionary (Server)</h3>
 <table>
 <thead>
 <tr>
-<th align="left">Required</th>
-<th>OWIN-D Key Name</th>
+<th>OWIN-D Function Name</th>
 <th>Value Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Yes</td>
-<td><strong>owind.RegisterDevice</strong></td>
-<td>{promise} function({dictionary} deviceContext) to register and start advertising the included device definition(s)</td>
+<td><strong>owind.Register</strong></td>
+<td>Function that registers a DEVICE, SERVICE or RESOURCE and starts advertising it on the underlying transport server.  Advertising includes sending HELLO messages, and responding to discovery probe and resolve messages.   DEVICE definition MAY contain child SERVICES and RESOURCES, or these MAY be registered individually.  If previously registered, this function updates the existing DEVICE, SERVICE or RESOURCE definition.</td>
 </tr>
 <tr>
-<td align="left">Yes</td>
-<td><strong>owind.UnregisterDevice</strong></td>
-<td>{promise} function({string} Urn) to stop advertising the referenced device Urn</td>
-</tr>
-<tr>
-<td align="left">Yes</td>
-<td><strong>owind.RegisterResourcePublisher</strong></td>
-<td>{{promise} function(outgoingContext)} function({string} url) to publish OWIN Response Context to all subscribers for this</td>
+<td><strong>owind.Unregister</strong></td>
+<td>Function that stops advertising a registered device.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="register-and-advertise-deviceserviceresource_1">Register and Advertise Device/Service/Resource</h3>
-<h3 id="invoke-handler-for-requested-resource-operation-server_1">Invoke handler for requested resource operation  (server)</h3>
-<h3 id="publish-event-to-all-subscribers-server_1">Publish Event to all Subscribers (server)</h3>
-<h3 id="request-resource-operation-client_1">Request Resource Operation  (client)</h3>
-<h3 id="stop-advertising_1">Stop Advertising</h3>
-<h3 id="discovery-probe_1">Discovery Probe</h3>
-<p>Find the devices that meet the given criteria (all, of type lighting, etc.)</p>
-<h3 id="discovery-resolve_1">Discovery Resolve</h3>
-<p>Find the current URIs for a given device URN</p>
+<h3 id="52-owin-d-support-dictionary-client">5.2. OWIN-D Support Dictionary (Client)</h3>
+<table>
+<thead>
+<tr>
+<th>OWIN-D Function Name</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>owind.DiscoveryProbe</strong></td>
+<td>Function that probes for a DEVICE in the local ECOSYSTEM.  Calls back provided OWIN-JS AppFunc for each device found.</td>
+</tr>
+<tr>
+<td><strong>owind.DiscoveryResolve</strong></td>
+<td>Function that resolves the transport location for a given DEVICE by unique identifier in the local ECOSYSTEM.</td>
+</tr>
+<tr>
+<td><strong>owind.CreateTransferRequest</strong></td>
+<td>Function that creates an OWIN-D context dictionary for an outgoing request to a given device.  See multicastTransfer extension for transports that support requests to multiple devices.  The returned context includes a full dictionary including <code>owin.RequestBody</code> stream which is used to complete the request.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-owin-d-capabilities-api-reference">5.3. OWIN-D Capabilities API Reference</h3>
+<h4 id="91owindregister93context">["owind.Register"](context)</h4>
+<p>Registers a DEVICE, SERVICE or RESOURCE for advertising on the underlying transport server.  </p>
+<p>Advertising includes sending HELLO messages, and responding to discovery probe and resolve messages.   DEVICE definition MAY contain child SERVICES and RESOURCES, or these MAY be registered individually.  If previously registered, this function updates the existing DEVICE, SERVICE or RESOURCE definition. </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>context</td>
+<td>OWIN-D dictionary</td>
+<td>Context dictionary for the DEVICE, SERVICE, or RESOURCE being registered</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="js">function middleware()
+{
+    var context {
+       &quot;owind.Manufacturer&quot; : &quot;Domabo&quot;
+      , &quot;owind.ManufacturerUrl&quot; : &quot;http://domabo.com&quot;
+      , &quot;owind.ModelName&quot; : &quot;Domabot X500&quot;
+      , &quot;owind.ModelNumber&quot; : &quot;&quot;D-X500&quot;
+      , &quot;owind.ModelUrl&quot; : &quot;http://domabo.com/products/domabot/x500&quot;
+      , &quot;owind.PresentationUrl&quot; : &quot;/img/img.jpg&quot;
+      , &quot;owind.DeviceId&quot; : &quot;1A:2B:3C:4D:5E:FF&quot;
+      , &quot;owind.DeviceUrn&quot; : &quot;urn:af6aacb6-17e0-45aa-9fc0-c4090f9c1f53&quot;
+      , &quot;owind.SetupCode&quot; : &quot;098-45-211&quot;
+      , &quot;owind.FriendlyName&quot; : &quot;LimeRun Test OWIN-D Server&quot;
+      , &quot;owind.SerialNumber&quot; : &quot;1234567890&quot;
+      , &quot;owind.FirmwareVersion&quot; : &quot;0.85A&quot;
+      };
+      var owind = this[&quot;server.Capabilities&quot;][&quot;owind.Support&quot;];
+      owind[&quot;owind.Register&quot;](context);
+}
+</code></pre>
+
+<h4 id="91owindunregisterurn">["owind.Unregister"](urn)</h4>
+<p>Registers a DEVICE, SERVICE or RESOURCE for advertising on the underlying transport server.  </p>
+<p>Advertising includes sending HELLO messages, and responding to discovery probe and resolve messages.   DEVICE definition MAY contain child SERVICES and RESOURCES, or these MAY be registered individually.  If previously registered, this function updates the existing DEVICE, SERVICE or RESOURCE definition. </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>urn</td>
+<td>string</td>
+<td>The owind.DeviceUrn of the device being unregistered</td>
+</tr>
+</tbody>
+</table>
+<p>Returns promise that fulfills when unregistration is complete (e.g., discovery BYEs have been sent).</p>
+<pre><code class="js">function middleware(properties)
+{
+    this._id = &quot;urn:af6aacb6-17e0-45aa-9fc0-c4090f9c1f53&quot;;
+    this_owind = properties[&quot;server.Capabilities&quot;][&quot;owind.Support&quot;];
+}    
+:
+function middleware_close()
+{ 
+   return this._owind[&quot;owind.Unregister&quot;](this._id);
+}
+</code></pre>
+
+<h4 id="91owinddiscoveryprobecontext-appfunc">["owind.DiscoveryProbe"](context[, appFunc])</h4>
+<p>Function that probes for a DEVICE in the local ECOSYSTEM.  Calls back provided OWIN-JS AppFunc for each device found. </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>context</td>
+<td>OWIN-D dictionary</td>
+<td>Context dictionary containing the filter information of the device being probed (e.g., owind.ServiceType)</td>
+</tr>
+<tr>
+<td>appFunc</td>
+<td>OWIN-JS function(context)</td>
+<td>optional function that is called for each device found;  the first device is also returned with the return parameter</td>
+</tr>
+</tbody>
+</table>
+<p>returns promise that fulfills with first device context or timeout error</p>
+<h4 id="91owinddiscoveryresolveurn">["owind.DiscoveryResolve"](urn)</h4>
+<p>Function that resolves for a given DEVICE urn in the local ECOSYSTEM.  Calls back provided OWIN-JS AppFunc for each device found. </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>urn</td>
+<td>string</td>
+<td>The owind.DeviceUrn of the device being sought</td>
+</tr>
+</tbody>
+</table>
+<p>returns promise that fulfills with the device context or timeout error</p>
+<h4 id="91owindcreatetransferrequesturn-or">["owind.CreateTransferRequest"](urn)  <em>or</em></h4>
+<h4 id="91owindcreatetransferrequestcontext">["owind.CreateTransferRequest"](context)</h4>
+<p>Function that creates an OWIN-D context dictionary for an outgoing request to a given device.  The returned context includes a full dictionary including <code>owin.RequestBody</code> stream which is used to complete the request and <code>owin.ResponseBody</code> stream which is used to process and track (<code>.on("response")</code>)the response.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>urn</td>
+<td>string</td>
+<td>The owind.DeviceUrn of the target device;  used to lookup within local discovery cache or by discovery resolve the transport destination</td>
+</tr>
+<tr>
+<td>context</td>
+<td>OWIN-D dictionary</td>
+<td>The full context (which includes transport details) of the target device</td>
+</tr>
+</tbody>
+</table>
+<p><strong>EXACTLY one of urn or context MUST be specified</strong></p>
+<p>returns new context with OWIN-JS/OWIN-D request/response dictionary.   Use <code>["owin.RequestBody"].end()</code> to send the request and <code>["owin.ResponseBody"].on("response")</code> to track the response.</p>
+<h2 id="6-error-handling">6. Error Handling</h2>
+<p>While there are standard exceptions such as Argument Exceptions and IO Exceptions that may be expected in normal request processing scenarios, handling only such exceptions is insufficient when building a robust server or application. If a server wishes to be robust it SHOULD consistently address all exception types thrown or returned from the application delegate or body delegate. The handling mechanism (e.g. logging, crashing and restarting, swallowing, etc.) is up to the server and host process.</p>
+<h3 id="61-application-errors">6.1. Application Errors</h3>
+<p>An application may generate an exception in the following places:</p>
+<ul>
+<li>Thrown from an invocation of the application delegate.</li>
+<li>Provided as the result of the application delegate Task/Promise</li>
+</ul>
+<p>An application SHOULD attempt to trap its own internal errors and generate an appropriate (e.g., 500 for HTTP, 5.00 for CoAP) response rather than propagating an exception up to the server.</p>
+<p>After an application provides a response, the server SHOULD wait to receive at least one write from the response Stream before writing the response headers to the underlying transport. In this way, if instead of a write to the Stream the server gets an exception from the application delegate Task, the server will still be able to generate a 500-level response. If the server gets a write to the Stream first, it can safely assume that the application has caught as many of its internal errors as possible; the server can begin sending the response. If an exception is subsequently received, the server MAY handle it as it sees fit (e.g. logging, write a textual description of the error to the underlying transport, and/or close the connection).</p>
+<h3 id="62-server-errors">6.2. Server Errors</h3>
+<p>When a server encounters errors during a request’s lifetime it SHOULD signal the CancellationToken it provided in <code>owin.CallCancelled</code>. The server MAY then take any necessary actions to terminate the request, but it SHOULD be tolerant of completion delays of the application delegate.</p>
+<h2 id="746-versioning">7. Versioning</h2>
+<p>Future updates to this standard may contain breaking changes (e.g. signature changes, key additions or modifications, etc.) or non-breaking additions. While addressing specific changes is the responsibility of later versions of the standard, here are initial guidelines for expected changes:</p>
+<ul>
+<li>
+<p>This standard uses Semantic Versioning as described at  (e.g. Major.Minor.Patch).</p>
+</li>
+<li>
+<p>Breaking changes to the API signatures or existing keys will require incrementing the major version number (e.g. OWIN-D 2.0)</p>
+</li>
+<li>
+<p>Adding new keys or delegates in a backwards compatible way only requires incrementing the minor version number (e.g. OWIN-D 1.1).</p>
+</li>
+<li>
+<p>Making corrections and clarifications to the document alone only requires incrementing the patch version number and last modified date (e.g. OWIN-D 1.0.1).</p>
+</li>
+<li>
+<p>The <code>"owind.Version"</code> key in the startup Properties and request Environment dictionaries indicates the latest version of the standard implemented by the server and may be used to dynamically adjust behaviors of applications.  Major and Minor versions are kept consistent on OWIN-D to match OWIN-JS as far as practical.</p>
+</li>
+<li>
+<p>All implementers SHOULD clearly document the full version number(s) of the OWIN-D standard they support.</p>
+</li>
+<li>
+<p>The keys listed in Extensions are strictly optional. Additions may be made there without directly affecting the OWIN-D standard or version number.</p>
+</li>
+</ul>
+<h2 id="8-extensions">8. Extensions</h2>
+<p>| Extension | Description |
+| --------- | ----------- |</p>
+<p>None defined at this time.  Extensions under consideration include Security, Pairing, Homekit, Nodekit.io, etc.</p>
+<h2 id="9-real-world-usage">9. Real World Usage</h2>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/limerun/lime-device/master/README.md">lime-device</a></td>
+<td>Reference implementation of OWIN-D that runs on the reference OWIN-JS limerun framework or Node javascript servers and clients</td>
+</tr>
+</tbody>
+</table>
 
             </div>
           </div>
@@ -536,10 +816,8 @@ brightnessProperties[&quot;owind.RequestPath&quot;] = [ &quot;http://127.0.0.1:1
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../About" class="btn btn-neutral float-right" title="About"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Functions" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -567,8 +845,8 @@ brightnessProperties[&quot;owind.RequestPath&quot;] = [ &quot;http://127.0.0.1:1
         
             <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
         
-      <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../About" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Functions" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 </body>
